@@ -1,4 +1,6 @@
-package com.copypasteproductions.game.socialchallengegame.domain.game.domain;
+package com.copypasteproductions.game.socialchallengegame.domain.game.domain.dao;
+
+import com.copypasteproductions.game.socialchallengegame.domain.game.domain.Challenge;
 
 public interface ChallengeDao {
 	
