@@ -19,6 +19,8 @@ public class GameLobby {
 	 * The expiration date of the lobby
 	 */
 	private Date timeout;
+	
+	//TODO: Determine whether this should be a queue.
 	/**
 	 * Set of Player information for this Lobby
 	 */
@@ -28,8 +30,16 @@ public class GameLobby {
 	 */
 	private Set<Integer> challengeIds;
 
+	/**
+	 * Turn Number for the lobby
+	 */
+	private int turnNumber;
 	
 	
+
+	public int getTurnNumber() {
+		return turnNumber;
+	}
 
 	@Override
 	public int hashCode() {
@@ -77,13 +87,20 @@ public class GameLobby {
 		return true;
 	}
 
-	public GameLobby(int lobbyID, String gameName, Date timeout, Set<Player> players, Set<Integer> challengeIds) {
+	public GameLobby(int lobbyID, String gameName, Date timeout, Set<Player> players, Set<Integer> challengeIds, int turnNumber) {
 		super();
 		this.lobbyID = lobbyID;
 		this.gameName = gameName;
 		this.timeout = timeout;
 		this.players = players;
 		this.challengeIds = challengeIds;
+		this.turnNumber = turnNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "GameLobby [lobbyID=" + lobbyID + ", gameName=" + gameName + ", timeout=" + timeout + ", players="
+				+ players + ", challengeIds=" + challengeIds + ", turnNumber=" + turnNumber + "]";
 	}
 
 	/**

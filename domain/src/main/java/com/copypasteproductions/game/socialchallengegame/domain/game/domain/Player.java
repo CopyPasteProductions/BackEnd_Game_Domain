@@ -8,11 +8,11 @@ public class Player {
 	
 	private int player_alias;
 	
-	private boolean turn;
+	private int turn;
 	
 	private int score;
 
-	public Player(int gameId, String userId, int player_alias, boolean turn, int score) {
+	public Player(int gameId, String userId, int player_alias, int turn, int score) {
 		super();
 		this.gameId = gameId;
 		this.userId = userId;
@@ -33,7 +33,8 @@ public class Player {
 		return player_alias;
 	}
 
-	public boolean isTurn() {
+
+	public int getTurn() {
 		return turn;
 	}
 
