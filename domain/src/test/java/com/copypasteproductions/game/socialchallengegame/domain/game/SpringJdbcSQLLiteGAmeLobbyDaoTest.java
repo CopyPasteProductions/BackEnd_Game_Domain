@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -23,12 +25,14 @@ public class SpringJdbcSQLLiteGAmeLobbyDaoTest {
 
 	JdbcTemplate template;
 	SpringJdbcSqliteGameLobbyDao dao;
+	
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+//		   Class.forName("org.sqlite.JDBC"); 
 	}
 
 	/**
@@ -44,8 +48,9 @@ public class SpringJdbcSQLLiteGAmeLobbyDaoTest {
 	@Before
 	public void setUp() throws Exception {
 		   Class.forName("org.sqlite.JDBC"); 
-		template = new JdbcTemplate(new DriverManagerDataSource("jdbc:sqlite:G:/StartupReset/backend_game_domain/GameDomain/domain/src/main/resources/GAME.DB"));
-		dao = new SpringJdbcSqliteGameLobbyDao(template);
+		
+		   ApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/copypasteproductions/game/socialchallengegame/domain/SpringBeans.xml");
+		  dao =  (SpringJdbcSqliteGameLobbyDao) applicationContext.getBean("SqlliteTestDao");
 	}
 
 	/**
